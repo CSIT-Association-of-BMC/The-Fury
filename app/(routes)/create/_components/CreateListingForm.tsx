@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useForm } from "react-hook-form";
 
 import BackButton from "@/components/BackButton";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,15 @@ import { Textarea } from "@/components/ui/textarea";
 import ImageUpload from "@/components/ImageUpload";
 
 const CreateListingForm = () => {
+  // const {} = useForm({
+  //   defaultValues: {
+  //     title: '',
+  //     description: "",
+  //     price: '',
+  //     photos: [],
+
+  //   }
+  // })
   return (
     <form className="px-3 ">
       <BackButton />
