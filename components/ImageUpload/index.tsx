@@ -1,8 +1,10 @@
 "use client";
-import React, { ChangeEvent, FC, useState, useTransition } from "react";
-import { Loader, FileImage } from "lucide-react";
+import React, { ChangeEvent, FC, useState } from "react";
+import { FileImage } from "lucide-react";
 import Image from "next/image";
+
 import { cn } from "@/lib/utils";
+import { useEdgeStore } from "@/lib/edgestore";
 
 interface ImageUploadProps {
   onChange: (fieldName: string, imgSrc: string) => void;
@@ -10,12 +12,20 @@ interface ImageUploadProps {
 
 const ImageUpload: FC<ImageUploadProps> = ({ onChange }) => {
   const [images, setImages] = useState<string[]>([]);
-  const [isLoading, startTransition] = useTransition();
   const [isDragging, setIsDragging] = useState(false);
+  const { edgestore } = useEdgeStore();
 
-  const uploadImage = (e: any, file: File) => {
+  const uploadImage = async (e: any, file: File) => {
     if (!file.type.startsWith("image") && images.length < 3) return;
     setImages((prev) => [...prev, URL.createObjectURL(file)]);
+
+    try {
+      const res = await edgestore.publicFiles.upload({
+        file,
+      });
+
+      console.log(res.url);
+    } catch (error) {}
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -64,17 +74,10 @@ const ImageUpload: FC<ImageUploadProps> = ({ onChange }) => {
         htmlFor="property"
         className={cn(
           " relative cursor-pointer hover:opacity-70 transition border-dashed  w-full p-24  border-2  border-neutral-300 flex-1 flex flex-col rounded-lg justify-center items-center   text-neutral-600 ",
-          isLoading && "opacity-70",
+
           isDragging && "border-green-500"
         )}
       >
-        {isLoading && (
-          <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-20">
-            {" "}
-            <Loader className="w-[32px] h-[32px] text-red-600" />
-          </div>
-        )}
-
         <>
           <FileImage className="!w-[48px] !h-[48px] mb-4" />
         </>
