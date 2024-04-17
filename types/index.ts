@@ -8,4 +8,5 @@ export const createListingFormSchema = z.object({
   price: z.string(),
   address: z.string(),
   category: z.string(),
+  latlng: z.array(z.number()),
 });

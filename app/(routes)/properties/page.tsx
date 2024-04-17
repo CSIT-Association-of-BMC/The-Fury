@@ -17,7 +17,7 @@ const PropertiesPage = () => {
       <Filter />
       <Properties properties={DUMMY_DATA} />
       <div className="flex-1 mx-4 flex-shrink-0 max-w-[840px] h-[710px] mt-16 rounded-2xl overflow-hidden bg-gray-100">
-        <Map>
+        <Map center={[27.686386, 83.432426]}>
           {DUMMY_DATA.map((property) => {
             return (
               <div key={property.id}>

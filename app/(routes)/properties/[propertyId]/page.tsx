@@ -107,7 +107,7 @@ const PropertyPage = () => {
                 Location
               </h2>
               <div className="w-full rounded-xl  overflow-hidden h-64">
-                <Map>
+                <Map center={[27.686386, 83.432426]}>
                   <MapMarker
                     position={DUMMY_DATA[0].latlng as [number, number]}
                   >

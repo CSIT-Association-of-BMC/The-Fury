@@ -30,14 +30,17 @@ const CreateListingForm = () => {
       bathroomNum: "",
       address: "",
       category: "",
+      latlng: [],
     },
     resolver: zodResolver(createListingFormSchema),
   });
 
   const images = watch("images");
+  const latlng = watch("latlng");
 
   const onSubmit = (data: z.infer<typeof createListingFormSchema>) => {
     const { bathroomNum, price, title, description, address, images } = data;
+    console.log(data);
   };
 
   return (
@@ -108,7 +111,12 @@ const CreateListingForm = () => {
           />
         </div>
 
-        <MarkYourProperty />
+        <MarkYourProperty
+          onChange={(value) => {
+            setValue("latlng", value);
+          }}
+          latlng={latlng}
+        />
 
         <div className="flex items-center justify-end mt-4">
           <Button type="submit" variant="primary" className="px-7">

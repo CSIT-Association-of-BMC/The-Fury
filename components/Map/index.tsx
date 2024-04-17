@@ -19,13 +19,16 @@ L.Icon.Default.mergeOptions({
 });
 
 interface MapProps {
-  children: ReactNode;
+  children?: ReactNode;
+  center: [number, number] | null;
 }
 
-const Map: FC<MapProps> = ({ children }) => {
+const Map: FC<MapProps> = ({ children, center }) => {
+  if (!center) return;
+
   return (
     <MapContainer
-      center={[27.686386, 83.432426]}
+      center={center}
       zoom={13}
       scrollWheelZoom={true}
       className="h-full"
