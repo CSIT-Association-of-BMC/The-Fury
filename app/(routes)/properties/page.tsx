@@ -2,6 +2,13 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Filter from "./_components/Filter";
 import Properties from "./_components/Properties";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { DUMMY_DATA } from "@/lib/constants";
 
 const Map = dynamic(() => import("@/components/Map"), {
