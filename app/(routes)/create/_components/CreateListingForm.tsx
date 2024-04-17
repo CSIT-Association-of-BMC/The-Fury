@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -13,6 +13,9 @@ import ImageUpload from "@/components/ImageUpload";
 import { SelectItem } from "@/components/ui/select";
 import MarkYourProperty from "./MarkYourProperty";
 import { createListingFormSchema } from "@/types";
+import { createProperty } from "@/services/property";
+import { useUser } from "@clerk/nextjs";
+import { Loader2 } from "lucide-react";
 
 const CreateListingForm = () => {
   const {
@@ -34,13 +37,41 @@ const CreateListingForm = () => {
     },
     resolver: zodResolver(createListingFormSchema),
   });
+  const [isLoading, startTransition] = useTransition();
+  const { user } = useUser();
 
   const images = watch("images");
   const latlng = watch("latlng");
 
   const onSubmit = (data: z.infer<typeof createListingFormSchema>) => {
-    const { bathroomNum, price, title, description, address, images } = data;
-    console.log(data);
+    const {
+      bathroomNum,
+      price,
+      title,
+      description,
+      address,
+      images,
+      latlng,
+      category,
+    } = data;
+
+    startTransition(async () => {
+      try {
+        createProperty({
+          title,
+          price: +price,
+          bathroomNum: +bathroomNum,
+          description,
+          address,
+          images,
+          location: {
+            coordinates: latlng,
+          },
+          category,
+          email: user?.emailAddresses[0].emailAddress as string,
+        });
+      } catch (error) {}
+    });
   };
 
   return (
@@ -119,8 +150,17 @@ const CreateListingForm = () => {
         />
 
         <div className="flex items-center justify-end mt-4">
-          <Button type="submit" variant="primary" className="px-7">
-            Create
+          <Button
+            type="submit"
+            variant="primary"
+            className="px-7 w-[105px]"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <Loader2 className="animate-spin w-5 h-5" />
+            ) : (
+              "Create"
+            )}
           </Button>
         </div>
       </div>

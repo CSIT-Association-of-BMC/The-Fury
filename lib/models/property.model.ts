@@ -7,6 +7,10 @@ const propertySchema = new mongoose.Schema({
   images: [String],
   bathroomNum: Number,
   address: String,
+  owner: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
   category: {
     type: String,
     enum: ["room", "appartment", "house"],
