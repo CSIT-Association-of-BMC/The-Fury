@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Loader } from "lucide-react";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -22,7 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body className={font.className}>{children}</body>
+        <body className={font.className}>
+          <ClerkLoading>
+            <div className="h-full w-full flex items-center justify-center">
+              <Loader className="h-6 w-6 animate-spin" />
+            </div>
+          </ClerkLoading>
+          <ClerkLoaded>{children}</ClerkLoaded>
+        </body>
       </ClerkProvider>
     </html>
   );
