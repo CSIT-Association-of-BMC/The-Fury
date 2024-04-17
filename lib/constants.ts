@@ -48,98 +48,89 @@ export const DUMMY_DATA = [
 
 export const USERS = [
   {
-    name: "Alice",
+    name: "Sagar Poudel",
     message:
-      "Cypress has been a game-changer for our team. With its reliable end-to-end testing, we catch bugs early, leading to faster development cycles and improved collaboration.",
+      "Dera has been a game-changer for our teams. With its reliable end-to-end Listings, we catch Desire results, leading to faster selection and improved accomodation.",
   },
   {
-    name: "Bob",
+    name: "Subidha Kc",
     message:
-      "I used to spend hours debugging frontend issues, but Cypress simplified everything. Now, I'm more productive, and my colleagues can trust our code thanks to Cypress.",
+      "I used to spend hours finfing good appartment for my family, but Dera simplified everything. Now, I'm more Happy, and my colleagues can Hangout in own Home! thanks to Dera.",
   },
   {
-    name: "Charlie",
+    name: "Sapana Bhusal",
     message:
-      "Cypress has transformed the way we work. Our QA and development teams are on the same page, and our productivity has skyrocketed. It's a must-have tool.",
+      "Dera has transformed the way we work. Our teams are on the same things for search to lunch Business skyrocketed. It's a must-have tool in market.",
   },
   {
-    name: "David",
+    name: "Rita Khanal",
     message:
-      "I was skeptical at first, but Cypress exceeded my expectations. Our project timelines have improved, and collaboration between teams is seamless.",
+      "I was skeptical at first, but Dera exceeded my expectations. Our Rent timelines have improved, and collaboration between teams is seamless.",
   },
   {
-    name: "Ella",
+    name: "Santosh Neupane",
     message:
-      "Cypress made writing and running tests a breeze. Our team's productivity has never been higher, and we're delivering more reliable software.",
+      "Dera made Finding and Searching  accomodations easy. Our team's productivity has never been higher, and we're Happy so the solutions .",
   },
   {
-    name: "Frank",
+    name: "Himansu Thapa",
     message:
-      "Thanks to Cypress, we've eliminated testing bottlenecks. Our developers and testers collaborate effortlessly, resulting in quicker releases.",
+      "Thanks to Dera, we've eliminated time bottlenecks. Our collaborate  with this platform effortlessly, resulting in quicker releases for reach desires results.",
   },
   {
-    name: "Grace",
+    name: "Sankhar Nepal",
     message:
-      "Cypress has improved our development process significantly. We now have more time for innovation, and our products are of higher quality.",
+      "Dera has improved our Accomodation process significantly. We now have more time for innovation, and our products are of higher quality.",
   },
   {
-    name: "Hank",
+    name: "Isha Pun",
     message:
-      "Cypress's user-friendly interface made it easy for our non-technical team members to contribute to testing. Our workflow is much more efficient now.",
+      "Dera's user-friendly interface made it easy for our non-technical team members to contribute to testing. Our workflow is much more efficient now.",
   },
   {
-    name: "Ivy",
+    name: "Sagar Nepal",
     message:
-      "Our team's collaboration improved immensely with Cypress. We catch issues early, leading to less friction and quicker feature deployments.",
+      "Our team's collaboration improved immensely with Dera. We catch issues early, leading to less friction and quicker feature deployments.",
   },
   {
-    name: "Jack",
+    name: "Sacar Adhakari",
     message:
-      "Cypress's robust testing capabilities have elevated our development standards. We work more harmoniously, and our releases are more reliable.",
+      "Dera's robust testing capabilities have elevated our development standards. We work more harmoniously, and our releases are more reliable.",
   },
   {
-    name: "Katherine",
+    name: "sita nepal",
     message:
-      "Cypress is a lifesaver for our cross-functional teams. We're more productive, and there's a shared sense of responsibility for product quality.",
+      "Dera is a lifesaver for our cross-functional teams. We're more productive, and there's a shared sense of responsibility for product quality.",
   },
   {
-    name: "Liam",
+    name: "Lalita singh",
     message:
-      "Cypress has helped us maintain high standards of quality. Our team's collaboration has improved, resulting in faster development cycles.",
+      "Dera has helped us maintain high standards of quality. Our team's collaboration has improved, resulting in faster development cycles.",
   },
   {
-    name: "Mia",
+    name: "Sangita Chhetri",
     message:
-      "Cypress is a powerful tool that improved our productivity and collaboration. It's now an integral part of our development process.",
+      "Dera is a powerful tool that improved our productivity and collaboration. It's now an integral part of GOTO solution for Rental process.",
   },
   {
-    name: "Nathan",
+    name: "Nabin gyawali",
     message:
-      "Cypress's user-friendly interface and detailed reporting have made testing a breeze. Our team's productivity is at an all-time high.",
+      "Dera's user-friendly interface and detailed reporting have made testing a breeze. Our team's productivity is at an all-time high with Affodable Rents .",
+  },
+
+  {
+    name: "Ashmita Pokharel",
+    message:
+      "Dera has been a game-changer for us. Our productivity and collaboration have improved significantly, leading to better Accomodations.",
   },
   {
-    name: "Olivia",
+    name: "Rita Pun",
     message:
-      "We saw immediate benefits in terms of productivity and collaboration after adopting Cypress. It's an essential tool for our development workflow.",
+      "Thanks to Dera, our trusted process is now a seamless part of our development cycle. Our teams collaborate effortlessly.",
   },
   {
-    name: "Paul",
+    name: "Anisha Khanal",
     message:
-      "Cypress has streamlined our testing process and brought our teams closer. We're more efficient and deliver better results.",
-  },
-  {
-    name: "Quinn",
-    message:
-      "Cypress has been a game-changer for us. Our productivity and collaboration have improved significantly, leading to better software.",
-  },
-  {
-    name: "Rachel",
-    message:
-      "Thanks to Cypress, our testing process is now a seamless part of our development cycle. Our teams collaborate effortlessly.",
-  },
-  {
-    name: "Sam",
-    message:
-      "Cypress is a fantastic tool that has revolutionized our workflow. Our productivity and collaboration have reached new heights.",
+      "Dera is a fantastic web-app that has revolutionized our workPlace. Our productivity and collaboration have reached new heights.",
   },
 ];
