@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Hero />
       <div className="background absolute top-0 left-0 w-full h-full -z-10"></div>
-      <Clients />
+      {/* <Clients /> */}
       <Testimonials />
     </>
   );
