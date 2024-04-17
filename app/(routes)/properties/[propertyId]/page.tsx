@@ -16,12 +16,21 @@ import PropertyInformation from "./_components/PropertyInformation";
 import BackButton from "@/components/BackButton";
 import MapMarker from "@/components/Map/Marker";
 import { DUMMY_DATA } from "@/lib/constants";
+import { getPropertyById } from "@/services/property";
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
 });
 
-const PropertyPage = () => {
+const PropertyPage = async ({
+  params: { propertyId },
+}: {
+  params: {
+    propertyId: string;
+  };
+}) => {
+  const property = await getPropertyById(propertyId);
+
   return (
     <div className="max-w-[1140px] mx-auto py-6">
       <div className="w-full flex items-center justify-between px-12">
@@ -35,7 +44,7 @@ const PropertyPage = () => {
               <BreadcrumbLink href="/properties">Properties</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem>Thapa niwas</BreadcrumbItem>
+            <BreadcrumbItem>{property.title}</BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
 
@@ -45,7 +54,7 @@ const PropertyPage = () => {
         <div className=" w-[55%] flex flex-col">
           <div className="h-96 pl-0 w-[96%] relative">
             <Image
-              src="/room-2.jpg"
+              src={property.images[0]}
               alt="home"
               fill
               className="rounded-lg object-cover"
@@ -63,18 +72,18 @@ const PropertyPage = () => {
           <div className="flex flex-col rounded-md p-4">
             <div className="flex  items-center justify-between ">
               <h2 className="text-xl text-headingColor font-semibold">
-                Thapa Niwas
+                {property.title}
               </h2>
               <div className=" flex items-center space-x-4 text-textColor">
                 <Bookmark className="w-5 h-5" />
                 <Share className="w-5 h-5" />
               </div>
             </div>
-            <p className="text-sm text-gray-500 mt-1">Butwal-11, Devinagar</p>
+            <p className="text-sm text-gray-500 mt-1">{property.address}</p>
             <div className="mt-2 flex justify-start gap-4 text-[14px] text-textColor">
               <div className="flex gap-1 items-center bg-white rounded-md">
                 <Bath className="w-4 h-4" />
-                <span>2</span>
+                <span>{property.bathroomNum}</span>
               </div>
               <div className="flex gap-1 items-center bg-white rounded-md">
                 <Scaling className="w-4 h-4" />
@@ -83,7 +92,7 @@ const PropertyPage = () => {
             </div>
             <div className="flex justify-start gap-6 items-baseline mt-4">
               <p className="text-xl text-primary font-semibold  ">
-                Rs 3000{" "}
+                Rs {property.price}{" "}
                 <span className="text-sm text-gray-500 font-normal">
                   per month
                 </span>
@@ -95,10 +104,7 @@ const PropertyPage = () => {
                 Overview
               </h2>
               <p className="text-sm text-textColor text-justify leading-[1.65]">
-                Welcome to our Thapa niwas! This charming single room offers a
-                serene sanctuary for those seeking comfort and convenience.
-                Bathed in natural light from the large window, the room exudes a
-                warm and inviting ambiance throughout the day.
+                {property.description}
               </p>
             </div>
             <PropertyInformation />
@@ -107,15 +113,15 @@ const PropertyPage = () => {
                 Location
               </h2>
               <div className="w-full rounded-xl  overflow-hidden h-64">
-                <Map center={[27.686386, 83.432426]}>
+                <Map center={property.location.coordinates}>
                   <MapMarker
-                    position={DUMMY_DATA[0].latlng as [number, number]}
+                    position={property.location.coordinates as [number, number]}
                   >
                     <Link
                       href={`/properties/${DUMMY_DATA[0].id}`}
                       className="text-primary"
                     >
-                      {DUMMY_DATA[0].title}, Rs {DUMMY_DATA[0].price}
+                      {property.title}, Rs {property.price}
                     </Link>
                   </MapMarker>
                 </Map>

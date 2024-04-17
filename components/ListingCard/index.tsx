@@ -5,35 +5,31 @@ import { FC } from "react";
 import { Badge } from "../ui/badge";
 
 interface ListingCardProps {
-  id: string;
-  title: string;
-  address: string;
-  bathroomNum: number;
-  area: number;
-  price: number;
-  image: string;
-  category: string;
-  latlng: number[];
+  property: {
+    _id: string;
+    title: string;
+    address: string;
+    bathroomNum: number;
+    price: number;
+    images: string[];
+    category: string;
+    location: {
+      coordinates: [number, number];
+    };
+  };
 }
 
 const ListingCard: FC<ListingCardProps> = ({
-  id,
-  title,
-  address,
-  bathroomNum,
-  area,
-  price,
-  image,
-  category,
+  property: { _id, title, address, bathroomNum, price, images, category },
 }) => {
   return (
     <Link
-      href={`/properties/${id}`}
+      href={`/properties/${_id}`}
       className="bg-white shadow-md rounded-xl overflow-hidden"
     >
       <div className="relative h-44">
         <Image
-          src={image}
+          src={images[0]}
           alt="home"
           fill
           className="rounded-t-lg object-cover"
@@ -61,7 +57,7 @@ const ListingCard: FC<ListingCardProps> = ({
           </div>
           <div className="flex items-center gap-2 text-xs text-textColor">
             <Scaling className="w-4 h-4" style={{ color: "#006994" }} />
-            <span>{area} sqft.</span>
+            <span>70 sqft.</span>
           </div>
         </div>
       </div>

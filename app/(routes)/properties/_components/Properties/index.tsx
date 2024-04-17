@@ -12,15 +12,16 @@ import ListingCard from "@/components/ListingCard";
 
 interface PropertiesProps {
   properties: {
-    id: string;
+    _id: string;
     title: string;
     address: string;
     bathroomNum: number;
-    area: number;
     price: number;
-    image: string;
+    images: string[];
     category: string;
-    latlng: number[];
+    location: {
+      coordinates: [number, number];
+    };
   }[];
 }
 
@@ -42,7 +43,9 @@ const Properties: FC<PropertiesProps> = ({ properties }) => {
         Available properties for Rent
       </h3>
       <div className="flex align-center justify-between gap-10 mb-4 py-2">
-        <p className="text-sm font-light text-gray-500">4 available</p>
+        <p className="text-sm font-light text-gray-500">
+          {properties.length} available
+        </p>
 
         <div className="flex items-center gap-1 justify-end text-[14px] text-textColor">
           <ArrowDownNarrowWide className="w-4 h-4" />
@@ -55,7 +58,7 @@ const Properties: FC<PropertiesProps> = ({ properties }) => {
       </div>
       <div className="grid grid-cols-2 gap-6 mb-10 mt-2">
         {properties.map((p) => (
-          <ListingCard key={p.id} {...p} />
+          <ListingCard key={p._id} property={p} />
         ))}
       </div>
     </div>

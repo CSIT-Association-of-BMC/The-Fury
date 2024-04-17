@@ -60,3 +60,17 @@ export const createProperty = async ({
     console.log(error.message);
   }
 };
+
+export const getProperties = async () => {
+  await connectToDB();
+  const properties = await Property.find();
+
+  return properties;
+};
+
+export const getPropertyById = async (id: string) => {
+  await connectToDB();
+  const property = await Property.findById(id);
+
+  return property;
+};
