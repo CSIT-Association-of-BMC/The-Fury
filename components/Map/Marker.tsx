@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, useEffect, useRef } from "react";
 
 import { Marker, Popup } from "react-leaflet";

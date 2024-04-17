@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Bookmark, Share, Bath, Scaling } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import {
   Breadcrumb,
@@ -12,8 +13,9 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import PropertyInformation from "./_components/PropertyInformation";
-import { DUMMY_DATA } from "@/lib/constants";
 import BackButton from "@/components/BackButton";
+import MapMarker from "@/components/Map/Marker";
+import { DUMMY_DATA } from "@/lib/constants";
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -105,7 +107,18 @@ const PropertyPage = () => {
                 Location
               </h2>
               <div className="w-full rounded-xl  overflow-hidden h-64">
-                <Map properties={[DUMMY_DATA[0]]} />
+                <Map>
+                  <MapMarker
+                    position={DUMMY_DATA[0].latlng as [number, number]}
+                  >
+                    <Link
+                      href={`/properties/${DUMMY_DATA[0].id}`}
+                      className="text-primary"
+                    >
+                      {DUMMY_DATA[0].title}, Rs {DUMMY_DATA[0].price}
+                    </Link>
+                  </MapMarker>
+                </Map>
               </div>
             </div>
           </div>

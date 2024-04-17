@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import L from "leaflet";
 
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
@@ -19,20 +19,10 @@ L.Icon.Default.mergeOptions({
 });
 
 interface MapProps {
-  properties: {
-    id: string;
-    title: string;
-    address: string;
-    bathroomNum: number;
-    area: number;
-    price: number;
-    image: string;
-    category: string;
-    latlng: number[];
-  }[];
+  children: ReactNode;
 }
 
-const Map: FC<MapProps> = ({ properties }) => {
+const Map: FC<MapProps> = ({ children }) => {
   return (
     <MapContainer
       center={[27.686386, 83.432426]}
@@ -45,20 +35,7 @@ const Map: FC<MapProps> = ({ properties }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {properties.map((property) => {
-        return (
-          <div key={property.id}>
-            <MapMarker position={property.latlng as [number, number]}>
-              <Link
-                href={`/properties/${property.id}`}
-                className="text-primary"
-              >
-                {property.title}, Rs {property.price}
-              </Link>
-            </MapMarker>
-          </div>
-        );
-      })}
+      {children}
     </MapContainer>
   );
 };

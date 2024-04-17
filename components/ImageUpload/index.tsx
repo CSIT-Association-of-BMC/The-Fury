@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useEdgeStore } from "@/lib/edgestore";
 
 interface ImageUploadProps {
-  onChange: (fieldName: string, imgSrc: string) => void;
+  onChange: (imgSrc: string) => void;
 }
 
 const ImageUpload: FC<ImageUploadProps> = ({ onChange }) => {
@@ -24,7 +24,7 @@ const ImageUpload: FC<ImageUploadProps> = ({ onChange }) => {
         file,
       });
 
-      console.log(res.url);
+      onChange(res.url);
     } catch (error) {}
   };
 
