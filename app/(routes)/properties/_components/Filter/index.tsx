@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const Filter = () => {
   return (
-    <aside className="w-[250px] py-3 px-6 flex-shrink-0 flex flex-col gap-6 text-[14px] ">
+    <aside className=" sticky top-0 w-[250px] py-3 px-6 flex-shrink-0 flex flex-col gap-6 text-[14px] ">
       <Categories />
       <hr />
       <PriceRange />
