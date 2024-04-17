@@ -13,7 +13,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
       <Navbar isLoggedIn={!!userId} />
-      <main className="h-full">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );

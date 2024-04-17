@@ -1,7 +1,12 @@
 import React from "react";
+import CreateListingForm from "./_components/CreateListingForm";
 
-const CreatePropertyPage = () => {
-  return <div>CreatePropertyPage</div>;
+const CreateListingPage = () => {
+  return (
+    <div className="max-w-[1140px] mx-auto  py-8">
+      <CreateListingForm />
+    </div>
+  );
 };
 
-export default CreatePropertyPage;
+export default CreateListingPage;
