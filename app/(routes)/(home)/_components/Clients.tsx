@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const Clients = () => {
   return (
-    <section className="relative py-4">
+    <section className="relative ">
       <div
         className="overflow-hidden container
         flex
@@ -38,28 +38,26 @@ const Clients = () => {
             key={uuidv4()}
             className="flex
             flex-nowrap
-           animate-slide
-
+no-repeat
       "
           >
             {Array.from({ length: 5 }, (_, i) => (
               <div
                 key={uuidv4()}
                 className=" relative
-                w-[120px]
+                w-[250px]
                 m-1
                 shrink-0
                 flex
                 items-center
-                h-[60px]
+                h-[90px]
               "
               >
                 <Image
                   src={`/client${i + 1}.png`}
                   alt="client"
                   fill
-                  className="object-contain max-w-none  
-                   no-repeat"
+                  className="object-contain max-w gap-3 "
                 />
               </div>
             ))}
