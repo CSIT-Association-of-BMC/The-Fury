@@ -1,11 +1,12 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import Hero from "./_components/Hero";
 
 const Home = () => {
   return (
-    <div>
-      <Button>button</Button>
-    </div>
+    <>
+      <Hero />
+      <div className="background absolute top-0 left-0 w-full h-full -z-10"></div>
+    </>
   );
 };
 
