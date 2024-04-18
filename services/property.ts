@@ -33,17 +33,21 @@ export const createProperty = async ({
       email,
     });
 
-    await Property.create({
-      title,
-      description,
-      images,
-      address,
-      category,
-      location,
-      price,
-      bathroomNum,
-      owner: currentUser._id,
-    });
+    return JSON.parse(
+      JSON.stringify(
+        await Property.create({
+          title,
+          description,
+          images,
+          address,
+          category,
+          location,
+          price,
+          bathroomNum,
+          owner: currentUser._id,
+        })
+      )
+    );
   } catch (error: any) {
     console.log(error.message);
   }

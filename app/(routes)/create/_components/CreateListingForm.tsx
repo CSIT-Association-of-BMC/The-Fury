@@ -16,6 +16,7 @@ import { createListingFormSchema } from "@/types";
 import { createProperty } from "@/services/property";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const CreateListingForm = () => {
   const {
@@ -39,6 +40,7 @@ const CreateListingForm = () => {
   });
   const [isLoading, startTransition] = useTransition();
   const { user } = useUser();
+  const router = useRouter();
 
   const images = watch("images");
   const latlng = watch("latlng");
@@ -57,7 +59,7 @@ const CreateListingForm = () => {
 
     startTransition(async () => {
       try {
-        createProperty({
+        const listing = await createProperty({
           title,
           price: +price,
           bathroomNum: +bathroomNum,
@@ -70,6 +72,8 @@ const CreateListingForm = () => {
           category,
           email: user?.emailAddresses[0].emailAddress as string,
         });
+
+        router.push(`/properties/${listing._id}`);
       } catch (error) {}
     });
   };
