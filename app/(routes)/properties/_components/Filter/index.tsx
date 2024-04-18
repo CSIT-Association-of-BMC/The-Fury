@@ -36,7 +36,7 @@ const Filter = () => {
 
   return (
     <aside className=" sticky top-0 w-[250px] py-3 px-6 flex-shrink-0 flex flex-col gap-6 text-[14px] ">
-      <Categories />
+      <Categories getValues={getValues} onChange={onChange} />
       <hr />
       <PriceRange />
       <hr />
