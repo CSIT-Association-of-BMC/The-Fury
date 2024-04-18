@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "./_components/Hero";
 import Testimonials from "./_components/Testimonials";
-import HowItWorks from "@/components/HowItWorks";
+import HowItWorks from "./_components/HowItWorks";
 
 const Home = () => {
   return (

@@ -12,13 +12,13 @@ import Card from "./Card";
 
 const HowItWorks = () => {
   return (
-    <div className="flex flex-col mt-4 items-center p-8 pb-14 ">
-      <p className="text-green-900 font-bold text-4xl">How We Work</p>
-      <div className="pt-8 flex flex-col items-center ">
-        <p className="font-semibold text-lg pb-4">
+    <section className="flex flex-col bg-green-50/60 items-center py-[88px] mt-20 ">
+      <h2 className="text-green-900 font-bold text-3xl">How it works</h2>
+      <div className="pt-3 flex flex-col items-center ">
+        <p className="font-semibold text-md pb-4">
           For room/ apartment/ house seeker
         </p>
-        <div className="flex flex-wrap items-start gap-28 pt-6 justify-between">
+        <div className="flex flex-wrap items-start gap-28 pt-10 justify-between">
           <Card
             icon={Search}
             title={"Search"}
@@ -41,8 +41,8 @@ const HowItWorks = () => {
           />
         </div>
       </div>
-      <div className="pt-20 flex flex-col items-center">
-        <p className="font-semibold text-lg pb-4">
+      <div className="pt-24 flex flex-col items-center">
+        <p className="font-semibold text-lg pb-6">
           For room/ apartment/ house owner
         </p>
         <div className="flex flex-wrap items-start gap-28 pt-6 justify-between">
@@ -68,7 +68,7 @@ const HowItWorks = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
