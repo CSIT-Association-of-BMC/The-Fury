@@ -33,18 +33,6 @@ export const createProperty = async ({
       email,
     });
 
-    console.log(
-      title,
-      description,
-      location,
-      price,
-      bathroomNum,
-      images,
-      address,
-      category,
-      email
-    );
-
     await Property.create({
       title,
       description,
@@ -61,11 +49,32 @@ export const createProperty = async ({
   }
 };
 
-export const getProperties = async () => {
-  await connectToDB();
-  const properties = await Property.find();
+export const getProperties = async (query: { [x: string]: any }) => {
+  const { category } = query;
 
-  return properties;
+  await connectToDB();
+  if (category) {
+    if (category.includes(",")) {
+      const allCategory = category.split(",");
+      let data: any = [];
+      for (let i = 0; i < allCategory.length; i++) {
+        const properties = await Property.find({
+          category: allCategory[i],
+        });
+
+        data = [...data, ...properties];
+      }
+      return data;
+    } else {
+      return await Property.find({
+        category,
+      });
+    }
+  }
+
+  return await Property.find({
+    $geoWithin: { $centerSphere: [[83.432426, 27.686386], 1 / 6378.16] },
+  });
 };
 
 export const getPropertyById = async (id: string) => {

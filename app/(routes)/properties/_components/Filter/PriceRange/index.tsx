@@ -29,7 +29,9 @@ const PriceRange = () => {
         min={1000}
         max={100000}
         className="mt-3"
-        onChange={(val) => setValue(val)}
+        onChange={(val) => {
+          setValue(val);
+        }}
         step={1000}
         styles={{
           track: {

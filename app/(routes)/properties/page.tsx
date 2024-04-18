@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import Filter from "./_components/Filter";
 import Properties from "./_components/Properties";
-import { DUMMY_DATA } from "@/lib/constants";
 import MapMarker from "@/components/Map/Marker";
 import { getProperties } from "@/services/property";
 
@@ -12,8 +11,14 @@ const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
 });
 
-const PropertiesPage = async () => {
-  const properties = await getProperties();
+const PropertiesPage = async ({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) => {
+  const properties = await getProperties({
+    category: searchParams?.category,
+  });
 
   return (
     <div className="flex items-start justify-between gap-6 pb-10">
@@ -21,9 +26,9 @@ const PropertiesPage = async () => {
       <Properties properties={properties} />
       <div className="flex-1 mx-4 flex-shrink-0 max-w-[840px] h-[710px] mt-16 rounded-2xl overflow-hidden bg-gray-100">
         <Map center={[27.686386, 83.432426]}>
-          {properties.map((property) => {
+          {properties.map((property: any) => {
             return (
-              <div key={property.id}>
+              <div key={property._id}>
                 <MapMarker
                   position={property.location.coordinates as [number, number]}
                 >
