@@ -24,7 +24,7 @@ const PropertiesPage = async ({
     <div className="flex items-start justify-between gap-6 pb-10">
       <Filter />
       <Properties properties={properties} />
-      <div className="flex-1 mx-4 flex-shrink-0 max-w-[840px] h-[710px] mt-16 rounded-2xl overflow-hidden bg-gray-100">
+      <div className="sticky top-0 flex-1 mx-4 flex-shrink-0 max-w-[840px] h-[710px] mt-16 rounded-2xl overflow-hidden bg-gray-100">
         <Map center={[27.686386, 83.432426]}>
           {properties.map((property: any) => {
             return (

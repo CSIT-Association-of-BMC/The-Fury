@@ -12,7 +12,7 @@ import Card from "./Card";
 
 const HowItWorks = () => {
   return (
-    <div className="flex flex-col mt-4 items-center p-8 pb-14 border border-zinc-200">
+    <div className="flex flex-col mt-4 items-center p-8 pb-14 ">
       <p className="text-green-900 font-bold text-4xl">How We Work</p>
       <div className="pt-8 flex flex-col items-center ">
         <p className="font-semibold text-lg pb-4">
